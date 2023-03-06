@@ -51,9 +51,9 @@
       </div>
     </nav>
     <section>
-      <form class="w-full max-w-lg mt-5">
+      <form class="w-full max-w-lg mt-5 ;">
         <div class="flex flex-wrap -mx-3 mb-2 display: inline;">
-          <div class="w-1/2 md:w-1/4 px-20 mb-2 md:mb-0 display: inline;">
+          <div class="w-1/2 md:w-1/2 mb-6 md:mb-0">
             <label
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-city"
@@ -61,7 +61,7 @@
               Male
             </label>
             <input
-              id="html"
+              id="male"
               name="type"
               type="radio"
               class="= relative h-5 w-5 cursor-pointer rounded-full border border-blue-gray-200 text-pink-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
@@ -75,7 +75,7 @@
               Female
             </label>
             <input
-              id="html"
+              id="female"
               name="type"
               type="radio"
               class="= relative h-5 w-5 cursor-pointer rounded-full border border-blue-gray-200 text-pink-500 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-pink-500 checked:before:bg-pink-500 hover:before:opacity-10"
@@ -248,12 +248,13 @@
         </div>
         <div class="buttons">
           <button
-            id="calculate-button"
+            id="calculate-bmi"
             class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 border-b-4 mt-3 border-teal-700 hover:border-teal-800 rounded"
           >
             Calculate BMI
           </button>
           <button
+            id="calculate-mifflin"
             class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 mx-5 mt-3 border-b-4 border-teal-700 hover:border-teal-800 rounded"
           >
             Mifflin St. Jeor
@@ -267,8 +268,8 @@
       </form>
       <div class="ml-10">
         <p class="display: block mt-3" id="bmi-result"></p>
-        <!-- <p class="display: block mt-3" id="bmi-result">Mifflin St. Jeor:</p>
-        <p class="display: block mt-3" id="bmi-result">Harris Benedict:</p> -->
+        <p class="display: block mt-3" id="mifflin-result">Mifflin St. Jeor:</p>
+        <p class="display: block mt-3" id="bmi-result">Harris Benedict:</p>
       </div>
     </section>
 

@@ -1,5 +1,7 @@
-let button = document.getElementById("calculate-button");
+const calculateBmi = document.getElementById("calculate-bmi");
 let bmiResult = document.getElementById("bmi-result");
+let mifflinResult = document.getElementById("mifflin-result");
+const calculateMifflin = document.getElementById("calculate-bmi");
 
 function BMI(bmi) {
   let weight = document.getElementById("weightInput").value.trim();
@@ -12,26 +14,43 @@ function BMI(bmi) {
 
     bmi = Math.round(bmi * 10) / 10;
     bmiResult.textContent = "BMI: " + bmi;
+    console.log(bmi);
     return bmi;
   } else {
     alert("For BMI you must enter both weight and height");
   }
 }
 
-button.addEventListener("click", BMI);
+calculateBmi.addEventListener("click", function (event) {
+  BMI();
+  event.preventDefault();
+});
 
-// function mifflinMale() {
-//   let weight = document.getElementById("weightInput").value.trim();
-//   let height = document.getElementById("heightInput").value.trim();
-//   let age = document.getElementById("ageInput").value.trim();
-//   //convert height to centimeters
-//   height = height * 2.54;
-//   //convert pounds to kilograms
-//   weight = weight * 0.45359237;
-//   if (input === male) {
-//     mifflinM = weight * 10 + 6.25 * height - 5 * age + 5;
-//   }
-// }
+calculateMifflin.addEventListener("click", function (event) {
+  mifflinMale();
+  event.preventDefault();
+});
+
+function mifflinMale(mifflinM) {
+  let weight = document.getElementById("weightInput").value.trim();
+  let height = document.getElementById("heightInput").value.trim();
+  let age = document.getElementById("ageInput").value.trim();
+  let sex = document.getElementById("male").checked;
+
+  //convert height to centimeters
+  height = height * 2.54;
+  //convert pounds to kilograms
+  weight = weight * 0.45359237;
+  mifflinM = weight * 10 + 6.25 * height - 5 * age + 5;
+  if (sex === true) {
+    mifflinResult.textContent = mifflinM;
+    return mifflinM;
+  } else {
+    alert(
+      "You have not entered all the necessary information to calculate this equation"
+    );
+  }
+}
 
 // function mifflinFemale() {
 //   let weight = document.getElementById("weightInput").value.trim();
