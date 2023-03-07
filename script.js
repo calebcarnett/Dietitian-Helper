@@ -21,16 +21,6 @@ function BMI(bmi) {
   }
 }
 
-calculateBmi.addEventListener("click", function (event) {
-  BMI();
-  event.preventDefault();
-});
-
-calculateMifflin.addEventListener("click", function (event) {
-  mifflinMale();
-  event.preventDefault();
-});
-
 function mifflinMale(mifflinM) {
   let weight = document.getElementById("weightInput").value.trim();
   let height = document.getElementById("heightInput").value.trim();
@@ -41,29 +31,25 @@ function mifflinMale(mifflinM) {
   height = height * 2.54;
   //convert pounds to kilograms
   weight = weight * 0.45359237;
-  mifflinM = weight * 10 + 6.25 * height - 5 * age + 5;
   if (sex === true) {
+    let mifflinM = weight * 10 + 6.25 * height - 5 * age + 5;
     mifflinResult.textContent = mifflinM;
-    return mifflinM;
   } else {
-    alert(
-      "You have not entered all the necessary information to calculate this equation"
-    );
+    let mifflinM = weight * 10 + 6.25 * height - 5 * age - 161;
+    mifflinResult.textContent = "Mifflin St.Jeor:" + mifflinM;
   }
+  return console.log(mifflinM);
 }
 
-// function mifflinFemale() {
-//   let weight = document.getElementById("weightInput").value.trim();
-//   let height = document.getElementById("heightInput").value.trim();
-//   let age = document.getElementById("ageInput").value.trim();
-//   //convert height to centimeters
-//   height = height * 2.54;
-//   //convert pounds to kilograms
-//   weight = weight * 0.45359237;
-//   if (input === female) {
-//     mifflinF = weight * 10 + 6.25 * height - 5 * age - 161;
-//   }
-// }
+calculateBmi.addEventListener("click", function (event) {
+  BMI();
+  event.preventDefault();
+});
+
+calculateMifflin.addEventListener("click", function (event) {
+  mifflinMale();
+  event.preventDefault();
+});
 
 // function harrisBenedictMale() {
 //   let weight = document.getElementById("weightInput").value.trim();
