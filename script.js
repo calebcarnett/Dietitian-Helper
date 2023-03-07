@@ -1,7 +1,9 @@
 const calculateBmi = document.getElementById("calculate-bmi");
+const calculateMifflin = document.getElementById("calculate-mifflin");
+const calculateHarris = document.getElementById("calculate-harris");
 let bmiResult = document.getElementById("bmi-result");
 let mifflinResult = document.getElementById("mifflin-result");
-const calculateMifflin = document.getElementById("calculate-mifflin");
+let harrisResult = document.getElementById("harris-result");
 
 function BMI(bmi) {
   let weight = document.getElementById("weightInput").value.trim();
@@ -21,7 +23,7 @@ function BMI(bmi) {
   }
 }
 
-function mifflinMale(mifflinM) {
+function mifflinMale(mifflin) {
   let weight = document.getElementById("weightInput").value.trim();
   let height = document.getElementById("heightInput").value.trim();
   let age = document.getElementById("ageInput").value.trim();
@@ -32,13 +34,32 @@ function mifflinMale(mifflinM) {
   //convert pounds to kilograms
   weight = weight * 0.45359237;
   if (sex === true) {
-    let mifflinM = weight * 10 + 6.25 * height - 5 * age + 5;
-    mifflinResult.textContent = mifflinM;
+    let mifflin = weight * 10 + 6.25 * height - 5 * age + 5;
+    mifflinResult.textContent = "Mifflin St.Jeor:" + mifflin;
   } else {
-    let mifflinM = weight * 10 + 6.25 * height - 5 * age - 161;
-    mifflinResult.textContent = "Mifflin St.Jeor:" + mifflinM;
+    let mifflin = weight * 10 + 6.25 * height - 5 * age - 161;
+    mifflinResult.textContent = "Mifflin St.Jeor:" + mifflin;
   }
-  return console.log(mifflinM);
+  return console.log(mifflin);
+}
+
+function harrisBenedict(harrisB) {
+  let weight = document.getElementById("weightInput").value.trim();
+  let height = document.getElementById("heightInput").value.trim();
+  let age = document.getElementById("ageInput").value.trim();
+  let sex = document.getElementById("male").checked;
+  //convert height to centimeters
+  height = height * 2.54;
+  //convert pounds to kilograms
+  weight = weight * 0.45359237;
+  if (sex === true) {
+    let harrisB = 66 + 13.8 * weight + 5 * height - 6.8 * age;
+    harrisResult.textContent = "Harris Benedict: " + harrisB;
+  } else {
+    let harrisB = 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
+    harrisResult.textContent = "Harris Benedict: " + harrisB;
+  }
+  return harrisB;
 }
 
 calculateBmi.addEventListener("click", function (event) {
@@ -51,17 +72,7 @@ calculateMifflin.addEventListener("click", function (event) {
   event.preventDefault();
 });
 
-function harrisBenedictMale() {
-  let weight = document.getElementById("weightInput").value.trim();
-  let height = document.getElementById("heightInput").value.trim();
-  let age = document.getElementById("ageInput").value.trim();
-  //convert height to centimeters
-  height = height * 2.54;
-  //convert pounds to kilograms
-  weight = weight * 0.45359237;
-  if (sex === true) {
-    let harrisB = 66 + 13.8 * weight + 5 * height - 6.8 * age;
-  } else {
-    let harrisB = 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
-  }
-}
+calculateHarris.addEventListener("click", function (event) {
+  harrisBenedict();
+  event.preventDefault();
+});
