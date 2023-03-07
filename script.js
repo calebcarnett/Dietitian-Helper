@@ -1,7 +1,7 @@
 const calculateBmi = document.getElementById("calculate-bmi");
 let bmiResult = document.getElementById("bmi-result");
 let mifflinResult = document.getElementById("mifflin-result");
-const calculateMifflin = document.getElementById("calculate-bmi");
+const calculateMifflin = document.getElementById("calculate-mifflin");
 
 function BMI(bmi) {
   let weight = document.getElementById("weightInput").value.trim();
@@ -51,28 +51,17 @@ calculateMifflin.addEventListener("click", function (event) {
   event.preventDefault();
 });
 
-// function harrisBenedictMale() {
-//   let weight = document.getElementById("weightInput").value.trim();
-//   let height = document.getElementById("heightInput").value.trim();
-//   let age = document.getElementById("ageInput").value.trim();
-//   //convert height to centimeters
-//   height = height * 2.54;
-//   //convert pounds to kilograms
-//   weight = weight * 0.45359237;
-//   if (input === male) {
-//     harrisMale = 66 + 13.8 * weight + 5 * height - 6.8 * age;
-//   }
-// }
-
-// function harrisBenedictFemale() {
-//   let weight = document.getElementById("weightInput").value.trim();
-//   let height = document.getElementById("heightInput").value.trim();
-//   let age = document.getElementById("ageInput").value.trim();
-//   //convert height to centimeters
-//   height = height * 2.54;
-//   //convert pounds to kilograms
-//   weight = weight * 0.45359237;
-//   if (input === male) {
-//     harrisFemale = 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
-//   }
-// }
+function harrisBenedictMale() {
+  let weight = document.getElementById("weightInput").value.trim();
+  let height = document.getElementById("heightInput").value.trim();
+  let age = document.getElementById("ageInput").value.trim();
+  //convert height to centimeters
+  height = height * 2.54;
+  //convert pounds to kilograms
+  weight = weight * 0.45359237;
+  if (sex === true) {
+    let harrisB = 66 + 13.8 * weight + 5 * height - 6.8 * age;
+  } else {
+    let harrisB = 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
+  }
+}
